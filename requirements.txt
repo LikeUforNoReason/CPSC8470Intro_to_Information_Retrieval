@@ -1,0 +1,4 @@
+torch
+transformers==2.3.0
+spacy
+scikit-learn
