@@ -3,13 +3,30 @@
 
 ## Dependencies
 
-We require python >= 3.6, pip >= 20.1.1, cuda >= 9, pytorch, transformers 2.3.0, apex, scikit-learn, and a handful of other supporting libraries. To install dependencies use
+We require python >= 3.6, pip >= 20.1.1, cuda >= 9, pytorch, transformers 2.3.0, apex, scikit-learn, and a handful of other supporting libraries. 
+
+In order to avoid that a python installation may not meet the requirements of each application, we create a virtual environment in which a specific python version is installed, as well as many other packages. To create a virtual environment, determine the directory where you want to place it, and run the venv module as a script in the directory path: 
+```
+python3 -m venv tutorial-env
+```
+After creating the virtual environment, we need to activate it. 
+On Windows, run: 
+```
+tutorial-env\Scripts\activate.bat
+```
+On Unix or MacOS, run: 
+```
+source tutorial-env/bin/activate
+```
+Activating the virtual environment will change the prompt of the terminal you are using to display the virtual environment you are using, and modify the environment so that the python command will run the specific version of Python that has been installed.
+
+To install dependencies use
 
 ```
 pip install -r requirements.txt
 git clone https://github.com/NVIDIA/apex
 cd apex
-pip install -v --no-cache-dir --global-option="--pyprof" --global-option="--cpp_ext" --global-option="--cuda_ext" ./
+pip install -v --no-cache-dir ./
 ```
 
 The spaCy model for English is needed and can be fetched with:
