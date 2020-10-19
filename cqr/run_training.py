@@ -11,6 +11,11 @@ from transformers import  GPT2Config, GPT2LMHeadModel, GPT2Tokenizer, AdamW, get
 
 from cqr.dataset import QueryRewriteDataset
 from cqr.utils import NUM_FOLD, set_seed, special_tokens_dict
+#diff
+#from apex.parallel import DistributedDataParallel as DDP
+from apex import amp
+import torch.distributed as dist
+from torch.nn.parallel import DistributedDataParallel as DDP
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +56,9 @@ def train(args, train_dataset, model, tokenizer, logger, cross_validate_id=-1):
 
     # multi-gpu training (should be after apex fp16 initialization)
     if args.n_gpu > 1:
-        model = torch.nn.DataParallel(model)
+        #model = torch.nn.DataParallel(model)
+        model = DDP(model)
+        model = model.cuda()
 
     # Train!
     logger.info("***** Running training *****")
@@ -72,8 +79,10 @@ def train(args, train_dataset, model, tokenizer, logger, cross_validate_id=-1):
         epoch_iterator = tqdm(train_dataloader, desc="Iteration", disable=args.local_rank not in [-1, 0])
         for step, batch in enumerate(epoch_iterator):
             inputs, labels = (batch[2], batch[3])  # get ids and labels
-            inputs = inputs.to(args.device)  # batch_size * block_size
-            labels = labels.to(args.device)
+            #inputs = inputs.to(args.device)  # batch_size * block_size
+            #labels = labels.to(args.device)
+            inputs = inputs.cuda()
+            labels = labels.cuda()
             model.train()
             outputs = model(inputs, labels=labels)
             loss = outputs[0]  # model outputs are always tuple in transformers (see doc)
