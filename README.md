@@ -116,7 +116,7 @@ Our models can be trained by:
 python cqr/run_training.py --model_name_or_path <pretrained_model_path> --train_file <input_json_file> --output_dir <output_model_path>
 ```
 
-### Cross-validation on TREC CAsT 2019
+### Cross-validation on TREC CAsT data set
 
 For example:
 
