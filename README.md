@@ -93,6 +93,15 @@ python cqr/preprocess.py
 
 This will generate `eval_topics.jsonl` in `data` along with 5 folds `eval_topics.jsonl.x(x=0,1,2,3,4)` for cross-validation.
 
+### Preprocess TREC CAsT 2020 Data
+
+If you want to use TREC CAsT 2020 as your module tranning data set, you can run `cqr/modified_preprocess.py` to convert and split folds for TREC CAsT 2020 data:
+
+```
+python cqr/modified_preprocess.py
+```
+
+This will generate `eval_topics.jsonl` in `data` along with 5 folds `eval_topics.jsonl.x(x=0,1,2,3,4)` for cross-validation.
 
 ## Generate Weak Supervision Data
 
