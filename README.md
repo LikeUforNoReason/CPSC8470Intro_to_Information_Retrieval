@@ -56,6 +56,20 @@ cd data
 wget https://raw.githubusercontent.com/daltonj/treccastweb/master/2019/data/evaluation/evaluation_topics_v1.0.json https://raw.githubusercontent.com/daltonj/treccastweb/master/2019/data/evaluation/evaluation_topics_annotated_resolved_v1.0.tsv
 ```
 
+We added some other behaviors in this system, such as providing clarifying questions, guiding the dialogue to a
+certain extent, and so on. So we modified the downloaded TREC CAsT 2019 data set, and you can directly use our modified data located in `data`.
+
+### TREC CAsT 2020 Data
+
+TREC CAsT 2020 data is very different from TREC CAsT 2019 data. The TREC CAsT 2020 data set has new data format.  Topics will unfold through the interactions. And a system response will be provided with each previous turn. It can be obtained from [here](https://github.com/daltonj/treccastweb).
+
+Use the following commands to download the TREC CAsT 2020 data to the `data` folder or you can directly use our downloaded data located in `data/TREC_CAsT_2020_Data`:
+
+```
+cd data
+wget https://raw.githubusercontent.com/daltonj/treccastweb/master/2020/2020_manual_evaluation_topics_v1.0.json https://raw.githubusercontent.com/daltonj/treccastweb/master/2020/2020_automatic_evaluation_topics_v1.0.json
+```
+
 ### MS MARCO Conversatioanl Search Corpus
 
 MS MARCO Conversational Search corpus is used to genearte weak supervison data and it can be obtained from [here](https://github.com/microsoft/MSMARCO-Conversational-Search).
@@ -69,9 +83,9 @@ wget https://msmarco.blob.core.windows.net/conversationalsearch/ann_session_dev.
 tar xvzf ann_session_dev.tar.gz
 ```
 
-### Preprocess TREC CAsT 2019 Data
+### Preprocess modified TREC CAsT 2019 Data
 
-Run `cqr/preprocess.py` to convert and split folds for TREC CAsT 2019 data:
+Run `cqr/preprocess.py` to convert and split folds for modified TREC CAsT 2019 data:
 
 ```
 python cqr/preprocess.py

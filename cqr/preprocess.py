@@ -4,10 +4,10 @@ import copy
 
 from cqr.utils import NUM_FOLD
 
-with open('data/evaluation_topics_v1.0.json', 'r') as fin:
+with open('data/modified_evaluation_topics_v1.0.json', 'r') as fin:
     raw_data = json.load(fin)
 
-with open('data/evaluation_topics_annotated_resolved_v1.0.tsv', 'r') as fin:
+with open('data/modified_evaluation_topics_annotated_resolved_v1.0.tsv', 'r') as fin:
     annonated_lines = fin.readlines()
 
 all_annonated = {}
