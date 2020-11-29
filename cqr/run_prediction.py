@@ -9,8 +9,8 @@ from torch.utils.data import DataLoader, Dataset, RandomSampler
 from tqdm import tqdm, trange
 from transformers import  GPT2Config, GPT2LMHeadModel, GPT2Tokenizer, AdamW, get_linear_schedule_with_warmup
 
-from cqr.dataset import QueryRewriteDataset
-from cqr.utils import NUM_FOLD, set_seed, special_tokens_dict
+from dataset import QueryRewriteDataset
+from utils import NUM_FOLD, set_seed, special_tokens_dict
 #diff
 #from apex.parallel import DistributedDataParallel as DDP
 from apex import amp
